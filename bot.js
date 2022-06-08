@@ -69,7 +69,7 @@ async function _checkStatus(msg){
 
 async function _startServer(msg){
   const startResult = await Aws.startServer(request, config);
-  let content = '遊戲伺服器正在啟動。需時大約3-5分鐘左右！';
+  let content = '遊戲伺服器正在啟動。需時大約5-7分鐘左右！（請耐心等侯，維京人就是啟動得比較慢）';
   msg.reply(content);
 }
 
