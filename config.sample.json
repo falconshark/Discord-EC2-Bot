@@ -2,5 +2,7 @@
   "discordBotToken": "Discord Bot Token",
   "checkStatusAPI": "API URL for check EC2 status",
   "startEC2API": "API URL for start EC2",
-  "stopEC2API": "API URL for stop EC2"
+  "stopEC2API": "API URL for stop EC2",
+  "checkServerTime": 3600000,
+  "valheimServerStatusUrl": "http://127.0.0.1/status.json"
 }

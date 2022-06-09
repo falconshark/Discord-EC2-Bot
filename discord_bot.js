@@ -8,13 +8,20 @@ const Aws = require('./lib/aws');
 const configFile = fs.readFileSync(path.resolve(__dirname, './config.json'), 'utf8');
 const config = JSON.parse(configFile);
 
+//By default will check server had user each hour
+const checkServerTime = config['checkServerTime'];
+
 const discordToken = config['discordBotToken'];
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+setInterval(function () {
+  _checkValheimStatus();
+}, checkServerTime);
+
 //If the bot had been connected, show message
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
 //Receive message
@@ -91,4 +98,14 @@ function _choose(msg){
     content = '格式不符合！';
   }
   msg.reply(content);
+}
+
+async function _checkValheimStatus(){
+  const statusUrl = config['valheimServerStatusUrl'];
+  //If server do not had any player, stop the ec2 server
+  const serverStatus = await Common.checkValheimStatus(request, statusUrl);
+  if(serverStatus === 'non_playing'){
+    console.log('Cannot detect any player. Stop Server...');
+    await Aws.stopServer(request, config);
+  }
 }
