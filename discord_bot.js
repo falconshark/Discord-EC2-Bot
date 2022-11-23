@@ -30,10 +30,6 @@ const commands = [
     name: 'stop',
     description: '停止伺服器',
   },
-  {
-    name: 'choose',
-    description: '(選項) 機器人老師，幫我選擇！格式範例：選項1|選項2。',
-  },
 ];
 
 const rest = new REST({ version: '10' }).setToken(discordToken);
@@ -72,9 +68,6 @@ client.on('interactionCreate', async (interaction) => {
   if (interaction.commandName === 'stop') {
     _stopServer(interaction);
   }
-  if (interaction.commandName === 'choose') {
-    _choose(interaction);
-  }
 });
 
 client.login(discordToken);
@@ -93,7 +86,6 @@ async function _checkStatus(msg){
 }
 
 async function _startServer(msg){
-  console.log('Work Here?');
   const startResult = await Aws.startServer(request, config);
   let content = '遊戲伺服器正在啟動。需時大約5-7分鐘左右！（請耐心等侯，維京人就是啟動得比較慢）';
   await msg.reply(content);
