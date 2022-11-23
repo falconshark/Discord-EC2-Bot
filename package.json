@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "discord.js": "12.5.3",
+    "discord.js": "*",
     "querystring": "^0.2.1",
     "random": "^3.0.6",
     "request": "^2.88.2"
