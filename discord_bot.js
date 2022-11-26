@@ -44,11 +44,9 @@ const rest = new REST({ version: '10' }).setToken(discordToken);
 	}
 })();
 
-/*
 setInterval(function () {
   _checkValheimStatus();
 }, checkServerTime);
-*/
 
 //Real part for bot action
 
@@ -102,7 +100,7 @@ async function _checkValheimStatus(){
   //If server do not had any player, stop the ec2 server
   const serverStatus = await Common.checkValheimStatus(request, statusUrl);
   if(serverStatus === 'non_playing'){
-    //console.log('Cannot detect any player. Stop Server...');
-    //await Aws.stopServer(request, config);
+    console.log('Cannot detect any player. Stop Server...');
+    await Aws.stopServer(request, config);
   }
 }
