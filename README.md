@@ -12,13 +12,13 @@ Node.js version 16.18.0 or higher.
 	"secretAccessKey": "Access Key Secret for AWS",
 	"instanceId": "EC2 instance ID",
 	"region": "ap-east-1",
-  "discordBotToken": "Discord Bot Token",
-  "discordClientId": "Discord Bot Client ID"
+        "discordBotToken": "Discord Bot Token",
+        "discordClientId": "Discord Bot Client ID"
 }
 ```
 2. Install PM2 (Advanced process manager) for keep running it:
 ```bash
-npm install pm2 -g`
+npm install pm2 -g
 pm2 start discord_bot.js
 pm2 save
 ```
