@@ -1,6 +1,8 @@
 {
+	"accessKeyId": "Access Key for AWS",
+	"secretAccessKey": "Access Key Secret for AWS",
+	"instanceId": "EC2 instance ID",
+	"region": "ap-east-1",
   "discordBotToken": "Discord Bot Token",
-  "discordClientId": "Discord Bot Client ID",
-  "awsAccessKey": "Access Key for AWS",
-  "awsAccessSecret": "Access Key Secret for AWS"
+  "discordClientId": "Discord Bot Client ID"
 }
